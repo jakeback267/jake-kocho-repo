@@ -1,0 +1,21 @@
+Connect-AzureAD
+
+#q1
+$myApp = New-AzureADApplication -DisplayName "jeff2" -IdentifierUris "M365x55226491.onmicrosoft.com/test"
+
+#q2
+$startDate = Get-Date
+$endDate = $startDate.AddYears(2)
+$appSecret = New-AzureADApplicationPasswordCredential -ObjectId $myApp.ObjectId -CustomKeyIdentifier "Access" -StartDate $startDate -EndDate $endDate
+
+#q3
+Connect-AzAccount
+$app = Get-AzADApplication -DisplayName "jeff2" 
+Set-AzADApplication -ObjectId $app.Id -Web @{ RedirectUris=$newRedirectUris }
+$newRedirectUris = @( “https://localhost:5000”, “https://localhost:5001” )
+
+#q4
+Get-AzureADApplication
+
+#q5
+Remove-AzADApplication -DisplayName jeff2
