@@ -1,0 +1,30 @@
+using System;
+using System.Collections.Generic;
+
+public class InventoryManagement
+{
+  public static void Main(string[] args){
+    List<string> inventoryList = new List<string> { "Printer", "Laptop", "Desk Chair", "Monitor", "Keyboard" };
+
+    Console.WriteLine(inventoryList.Count);
+
+    Console.WriteLine(inventoryList.Contains("Desk Chair"));
+
+    //Console.WriteLine(inventoryList.Remove("Printer"));
+    // Your code goes here
+    List<string> newItems = new List<string> { "Mouse", "Desk Lamp" };
+
+    foreach(string i in inventoryList) {
+      Console.WriteLine(i);
+    }
+
+    inventoryList.AddRange(newItems);
+
+    inventoryList.RemoveRange(inventoryList.Count - 2, 2);
+
+    foreach(string i in inventoryList) {
+      Console.WriteLine(i);
+    }
+
+  }
+}

@@ -1,0 +1,12 @@
+$dbServers = @("DatabaseServer1","DatabaseServer2")
+$webServers = @("WebServer1","WebServer2","WebServer3")
+$storageServers = @("StorageServer1")
+
+# Add code below
+$server = "StorageServer4"
+
+if ($dbServers.Contains($srever)) {
+  Write-Host "In dbserver"
+} elseif ($webServers.Contains($srever)) {
+  Write-Host "In webserver"
+}

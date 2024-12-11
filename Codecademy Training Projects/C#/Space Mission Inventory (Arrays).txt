@@ -1,0 +1,54 @@
+using System;
+
+namespace SpaceMission
+{
+  class Program
+  {
+    static void Main(string[] args)
+    {
+      string[] spaceInventory = new string[] { 
+        "Space Suits",
+        "Oxygen Tanks",
+        "Food Supplies",
+        "Medical Kits",
+        "Communication Devices",
+        "Fuel Canisters",
+        "Navigation Tools",
+        "Repair Tools" };
+
+      int[] itemQuantities = new int[] { 10, 8, 15, 5, 6, 9, 4, 7 };
+
+      if (spaceInventory.Length == 8) {
+        Console.WriteLine("Space Inventory is ready to go!");
+      } else if (spaceInventory.Length < 8) {
+        Console.WriteLine("Too many items!");
+      } else if (spaceInventory.Length > 8) {
+        Console.WriteLine("Add more items!");
+      }
+
+      Console.WriteLine(spaceInventory[1]);
+      Console.WriteLine(itemQuantities[1]);
+
+      spaceInventory[7] = "Scientific Instruments";
+      itemQuantities[7] = 5;
+
+      int index = Array.IndexOf(itemQuantities, 5);
+      Console.WriteLine($"The first item with quantity 5 is at position {index}.");
+
+      Array.Reverse(spaceInventory);
+
+      Array.Sort(spaceInventory);
+      for (int i = 0; i < spaceInventory.Length; i++)
+      {
+          Console.WriteLine(spaceInventory[i]);
+      }
+      /*
+      for (int i = 0; i < itemQuantities.Length; i++)
+      {
+          Console.WriteLine(itemQuantities[i]);
+      }
+      */
+      //Console.WriteLine(spaceInventory);
+    }
+  }
+}

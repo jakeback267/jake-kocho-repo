@@ -1,0 +1,43 @@
+using System;
+
+namespace ArchitectArithmetic
+{
+  class Program
+  {
+    public static void Main(string[] args)
+    {
+      double tajMahalSquare = rectangle(90.5, 90.5);
+      double tajMahalTriangleSides = triangle(24, 24)*4;
+      double tajMahalTotalArea = tajMahalSquare - tajMahalTriangleSides;
+      Console.WriteLine(tajMahalTotalArea);
+    }
+
+    static string CalculateTotalCost()
+    {
+      double mainRectangle = rectangle(2500, 1500);
+      double circleBit = circle(375)/2;
+      double triangleBit = triangle(500, 750);
+      double totalFloorPlan = mainRectangle + circleBit + triangleBit;
+      //Console.WriteLine($"The total floor plan is {totalFloorPlan} meters");
+      double floorPlanCost = Math.Round(totalFloorPlan * 180, 2);
+
+      return $"The plan for that monument costs {floorPlanCost} pesos!";
+    } 
+
+    static double rectangle(double length, double width)
+    {
+      return length * width;
+    }
+
+    static double circle(double radius)
+    {
+      //pie = Math.PI();
+      return Math.PI * Math.Pow(radius, 2); 
+    }
+
+    static double triangle(double bottom, double height)
+    {
+      return 0.5 * bottom * height;
+    }
+  }
+}
