@@ -1,0 +1,78 @@
+/*
+select *
+from users
+LIMIT 10;
+
+select *
+from posts
+LIMIT 10;
+
+select *
+from subreddits;
+*/
+/*
+SELECT users.username, COUNT(posts.id) AS posts_made
+FROM users
+LEFT JOIN posts
+ON users.id = posts.user_id
+GROUP BY users.id
+ORDER BY posts_made DESC
+*/
+/*
+SELECT * 
+FROM posts JOIN users
+ON posts.user_id = users.id
+*/
+/*
+SELECT * FROM posts
+UNION
+SELECT * FROM posts2;
+ */
+/*
+WITH popular_posts AS (
+  SELECT *
+  FROM posts
+  WHERE score > 5000
+)
+SELECT subreddits.name, popular_posts.title, popular_posts.score
+FROM subreddits
+JOIN popular_posts
+  ON subreddits.id = popular_posts.subreddit_id
+ORDER BY popular_posts.score DESC;
+*/
+/*
+SELECT posts.title, subreddits.name, MAX(posts.score) AS high_score
+FROM posts
+JOIN subreddits
+  ON posts.subreddit_id = subreddits.id
+GROUP BY subreddits.id;
+*/
+
+SELECT subreddits.name, ROUND(AVG(posts.score), 2) AS average_score
+FROM subreddits
+JOIN posts
+  ON subreddits.id = posts.subreddit_id
+GROUP BY subreddits.name
+ORDER BY average_score DESC;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

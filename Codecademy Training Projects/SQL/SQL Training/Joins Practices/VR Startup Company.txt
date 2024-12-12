@@ -1,0 +1,58 @@
+SELECT * 
+FROM employees
+LIMIT 10;
+
+SELECT *
+FROM projects;
+
+/*
+SELECT employee_id 
+FROM employees
+WHERE current_project IS NULL;
+
+SELECT project_name 
+FROM projects
+WHERE project_id NOT IN (
+   SELECT current_project
+   FROM employees
+   WHERE current_project IS NOT NULL);
+*/
+SELECT (COUNT(*) * 2) - (
+  SELECT COUNT(*)
+  FROM employees
+  WHERE current_project IS NOT NULL
+    AND position = 'Developer') AS available_positions
+FROM projects;
+
+/*
+SELECT project_name
+FROM projects
+JOIN employees
+  ON projects.project_id = employees.current_project
+WHERE current_project IS NOT NULL
+GROUP BY current_project
+HAVING COUNT(current_project) > 1;
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

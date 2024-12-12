@@ -1,0 +1,3 @@
+SELECT date, ROUND(AVG(money_in), 2) AS 'Average BUY', ROUND(AVG(money_out), 2) AS 'Average SELL'
+FROM transactions
+GROUP BY date;

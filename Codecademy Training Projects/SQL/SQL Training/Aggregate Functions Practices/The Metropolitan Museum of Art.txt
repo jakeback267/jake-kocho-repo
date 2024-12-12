@@ -1,0 +1,35 @@
+/*
+SELECT COUNT(*)
+FROM met
+WHERE category LIKE 'celery%';
+*/
+/*
+SELECT title, category, MIN(date)
+FROM met
+LIMIT 10;
+*/
+/*
+SELECT country, COUNT(*) 
+FROM met
+GROUP BY country
+HAVING COUNT(*) > 100
+ORDER BY COUNT(*) DESC
+LIMIT 10;
+*/
+/*
+SELECT medium, COUNT(*)
+FROM met
+WHERE medium LIKE '%gold%' OR medium LIKE '%silver%'
+ORDER BY COUNT(*) DESC
+*/
+
+SELECT CASE
+   WHEN medium LIKE '%gold%'   THEN 'Gold'
+   WHEN medium LIKE '%silver%' THEN 'Silver'
+   ELSE NULL
+  END AS 'Bling',
+  COUNT(*)
+FROM met
+WHERE Bling IS NOT NULL
+GROUP BY 1
+ORDER BY 2 DESC;

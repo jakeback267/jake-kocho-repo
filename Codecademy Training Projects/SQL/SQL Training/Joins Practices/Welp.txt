@@ -1,0 +1,16 @@
+/*
+SELECT places.name, places.average_rating, reviews.username, reviews.rating, reviews.review_date, reviews.note
+FROM places
+LEFT JOIN reviews
+  ON places.id = reviews.place_id;
+
+  SELECT places.name, places.average_rating, reviews.username, reviews.rating, reviews.review_date, reviews.note
+FROM places
+JOIN reviews
+  ON places.id = reviews.place_id;
+*/
+SELECT places.id, places.name
+FROM places
+LEFT JOIN reviews
+  ON places.id = reviews.place_id
+WHERE reviews.place_id IS NULL;
